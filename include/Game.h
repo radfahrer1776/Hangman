@@ -1,18 +1,25 @@
 #pragma once
 
-#include <string>
-#include <set>
+#include "Word.h"
 
-class Word{
+#include <iostream>
+#include <string>
+#include <cctype>
+
+class Game {
     private:
-        std::string originalWord;
-        std::string currentMask;
-        std::set<char> guessedLetters;
+        Word word;
+        int maxAttempts;
+        int attemptsLeft;
 
     public:
-        Word (const std::string& original);
-        bool guessLetter (char letter);
-        std::string getMaskedWord () const;
-        // bool isFullyGuessed () const;
-        // bool wasGuessedBefore (char letter) const;
+        Game(const std::string& targetWord, int maxAttempts = 6);
+        void displayHangman() const;
+        void play();
+    
+    private:
+        void displayState() const;
+        char getUserInput() const;
+        void printEndMessage ()const;
+
 };

@@ -1,9 +1,5 @@
 #include "../include/Word.h"
 
-#include <string>
-#include <cctype>
-#include <set>
-
 Word::Word(const std::string& original) : originalWord(original){
     for (size_t i = 0; i < originalWord.size(); ++i) {
         if (std::isspace(originalWord[i]) || std::ispunct(originalWord[i]))
@@ -15,6 +11,10 @@ Word::Word(const std::string& original) : originalWord(original){
 
 std::string Word::getMaskedWord() const {
     return currentMask;
+}
+
+const std::string& Word::getOriginalWord() const {
+    return originalWord;
 }
 
 bool Word::guessLetter(char letter) {
