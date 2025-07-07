@@ -13,7 +13,7 @@ class Word{
         Word (const std::string& original);
         bool guessLetter (char letter);
         std::string getMaskedWord () const;
-        const std::string& Word::getOriginalWord() const;
+        const std::string& getOriginalWord() const;
         bool isFullyGuessed () const;
         bool wasGuessedBefore (char letter) const;
 };
