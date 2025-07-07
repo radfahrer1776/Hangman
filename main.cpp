@@ -4,35 +4,13 @@
 
 int main (){
 
-    Word word ("Hello, world!");
-    std::cout << word.getMaskedWord() << "\n";
+   SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
 
-    word.guessLetter('o');
-    std::cout << word.getMaskedWord() << "\n";
+    std::string targetWord = "Hello, world!";
 
-    word.guessLetter('o');
-    std::cout << word.getMaskedWord() << "\n";
-
-    word.guessLetter('l');
-    std::cout << word.getMaskedWord() << "\n";
-
-    word.guessLetter('h');
-    std::cout << word.getMaskedWord() << "\n";
-
-    word.guessLetter('d');
-    std::cout << word.getMaskedWord() << "\n";
-
-    word.guessLetter('!');
-    std::cout << word.getMaskedWord() << "\n";
-
-    word.guessLetter('W');
-    std::cout << word.getMaskedWord() << "\n";
-
-    word.guessLetter(',');
-    std::cout << word.getMaskedWord() << "\n";
-
-    word.guessLetter('e');
-    std::cout << word.getMaskedWord() << "\n";
+    Game game(targetWord);
+    game.play();
 
     return 0;
 }
