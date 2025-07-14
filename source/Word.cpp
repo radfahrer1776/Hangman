@@ -44,3 +44,4 @@ bool Word::wasGuessedBefore(char letter) const {
     letter = std::tolower(letter);
     return guessedLetters.count(letter) > 0;
 }
+
