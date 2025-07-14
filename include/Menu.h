@@ -1,8 +1,10 @@
 #pragma once
 
 #include <iostream>
+#include <chrono>
+#include <thread>
 
 class Menu{
     public:
-        void display() const;
+        std::string selectLanguageCode() const;
 };

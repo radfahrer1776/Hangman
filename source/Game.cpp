@@ -1,12 +1,5 @@
 #include "../include/Game.h"
-
-void clearConsole(){
-    #ifdef _WIN32
-    system("cls");
-    #else
-    system("clear");
-    #endif
-}
+#include "../include/Utils.h"
 
 Game::Game(const std::string& targetWord, int maxAttempts)
     : word(targetWord), maxAttempts(maxAttempts), attemptsLeft(maxAttempts) {}
@@ -17,9 +10,16 @@ void Game::play() {
         displayHangman();
         displayState();
 
+        std::cout << "Enter a letter: ";
         char guess = getUserInput();
 
-        if (word.wasGuessedBefore(guess) || incorrectLetters.count(guess)) {
+        if (guess == 0) {
+            std::cout << "[!] Enter a single letter.\n";
+            std::this_thread::sleep_for(std::chrono::milliseconds(1500));
+            continue;
+        }
+
+        if (word.wasGuessedBefore(guess) || incorrectLetters.count(guess) > 0) {
             std::cout << "[!] You already guessed the letter '" << guess << "'. Try another one.\n";
             std::this_thread::sleep_for(std::chrono::milliseconds(1500));
             continue;
@@ -43,16 +43,15 @@ void Game::play() {
 
 char Game::getUserInput() const {
     std::string input;
+    std::getline(std::cin, input);
 
-    while (true) {
-        std::cout << "Enter a letter: ";
-        std::getline(std::cin, input);
+    input.erase(0, input.find_first_not_of(" \t\n\r\f\v"));
+    input.erase(input.find_last_not_of(" \t\n\r\f\v") + 1);
 
-        if (input.length() == 1 && std::isalpha(input[0])) {
-            return std::tolower(input[0]);
-        } else {
-            std::cout << "[Error] Enter a single letter.\n";
-        }
+    if (input.length() == 1 && std::isalpha(input[0])) {
+        return std::tolower(input[0]);
+    } else {
+        return 0;
     }
 }
 

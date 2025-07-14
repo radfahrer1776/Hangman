@@ -15,7 +15,7 @@ class Game {
         Word word;
         int maxAttempts;
         int attemptsLeft;
-         std::set<char> incorrectLetters;
+        std::set<char> incorrectLetters;
 
     public:
         Game(const std::string& targetWord, int maxAttempts = 6);
