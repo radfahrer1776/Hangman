@@ -11,6 +11,12 @@ A console-based implementation of the classic "Hangman" game, written in C++ usi
 - Display of remaining attempts and current word state.
 - Random word selection using `mt19937`.
 
+## 🎮 Gameplay Preview
+
+![Hangman Win](playerWin.jpg)
+
+![Hangman Lose](playerLose.jpg)
+
 ## 🧠 Project Structure
 
 ### `Art`  
