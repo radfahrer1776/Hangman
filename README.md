@@ -13,9 +13,7 @@ A console-based implementation of the classic "Hangman" game, written in C++ usi
 
 ## 🎮 Gameplay Preview
 
-![Hangman Win](playerWin.jpg)
-
-![Hangman Lose](playerLose.jpg)
+![Hangman Win](playerWin.jpg) ![Hangman Lose](playerLose.jpg)
 
 ## 🧠 Project Structure
 
